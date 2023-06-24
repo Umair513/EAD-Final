@@ -42,10 +42,10 @@
           <% var i = 1 %> <% data.forEach((item) => { %>
           <tr>
             <td><%= i++ %></td>
-            <td><%= item.title></td>
-            <td><%= item.description></td>
-            <td><%= item.ingredients></td>
-            <td><%= item.instructions></td>
+            <td><%= item.title%></td>
+            <td><%= item.description%></td>
+            <td><%= item.ingredients%></td>
+            <td><%= item.instructions%></td>
             <td>
               <form
                 action="/recipe/edit/<%= item._id%>"

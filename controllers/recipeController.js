@@ -1,4 +1,4 @@
-import StudentModel from "../models/recipe.js"
+import RecipeModel from "../models/recipe.js"
 
 class recipeController {
     static createDoc = async (req, res) => {
@@ -6,17 +6,19 @@ class recipeController {
         //  console.log(req.body)
 
         try {
-             const { title, des, ing, ins } = req.body
-            const doc = new StudentModel({
+            const { title, description, ingredients, instruction } = req.body
+            const doc = new RecipeModel({
                 title: title,
-                des: des,
-                ing: ing,
-                ins: ins
+                description: description,
+                ingredients: ingredients,
+                instruction: instruction
             })
             // saving doc 
             const result = await doc.save()
             // console.log(result)
             res.redirect("/recipe")
+            
+           console.log(req.body)
         } catch (error) {
             console.log(error)
         }
