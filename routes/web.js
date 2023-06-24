@@ -1,12 +1,13 @@
 import express from "express"
 const router = express.Router()
-import studentController from "../controllers/studentController.js"
+// import studentController from "../controllers/studentController.js"
+import recipeController from "../controllers/recipeController.js"
 
-router.get("/", studentController.getAllDoc)
-router.post("/", studentController.createDoc)
-router.get("/edit/:id", studentController.editDoc)
-router.post("/update/:id", studentController.updateDocById)
-router.post("/delete/:id", studentController.deleteDocById)
+router.get("/", recipeController.getAllDoc)
+router.post("/", recipeController.createDoc)
+router.get("/edit/:id", recipeController.editDoc)
+router.post("/update/:id", recipeController.updateDocById)
+router.post("/delete/:id", recipeController.deleteDocById)
 
 
 export default router
