@@ -1,4 +1,4 @@
-import StudentModel from "../models/Student.js"
+import StudentModel from "../models/recipe.js"
 
 class recipeController {
     static createDoc = async (req, res) => {
