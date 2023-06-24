@@ -1,28 +1,29 @@
 import StudentModel from "../models/Student.js"
 
-class studentController {
+class recipeController {
     static createDoc = async (req, res) => {
 
         //  console.log(req.body)
 
         try {
-            const { name, age, fees } = req.body
+             const { title, des, ing, ins } = req.body
             const doc = new StudentModel({
-                name: name,
-                age: age,
-                fees: fees
+                title: title,
+                des: des,
+                ing: ing,
+                ins: ins
             })
             // saving doc 
             const result = await doc.save()
             // console.log(result)
-            res.redirect("/student")
+            res.redirect("/recipe")
         } catch (error) {
             console.log(error)
         }
     }
     static getAllDoc = async (req, res) => {
         try {
-            const result = await StudentModel.find()
+            const result = await RecipeModel.find()
             // console.log(result)
             res.render("index", { data: result })
         } catch (error) {
@@ -33,7 +34,7 @@ class studentController {
     static editDoc = async (req, res) => {
        // console.log(req.params.id)
         try {
-            const result = await StudentModel.findById(req.params.id)
+            const result = await RecipeModel.findById(req.params.id)
             // console.log(result)
             res.render("edit", {data: result})
         } catch (error) {
@@ -45,16 +46,16 @@ class studentController {
         // console.log(req.params.id)
         // console.log(req.body)
         try {
-            const result = await StudentModel.findByIdAndUpdate(req.params.id, req.body)
+            const result = await RecipeModel.findByIdAndUpdate(req.params.id, req.body)
         } catch (error) {
             console.log(error)
         }
-        res.redirect("/student")
+        res.redirect("/recipe")
     }
     static deleteDocById = async (req, res) => {
         try {
-            const result = await StudentModel.findByIdAndDelete(req.params.id)
-            res.redirect("/student")
+            const result = await RecipeModel.findByIdAndDelete(req.params.id)
+            res.redirect("/recipe")
         } catch (error) {
             console.log(error)
         }
@@ -62,4 +63,4 @@ class studentController {
     }
 }
 
-export default studentController
+export default recipeController
